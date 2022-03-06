@@ -1,0 +1,83 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="productForm">
+      <nb-tabset>
+        <nb-tab tabTitle="Adicionar Produto">
+
+
+
+          <div class="form-group row">
+
+            <label for="code" class="label col-sm-1 col-form-label">Código: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Código" id="code"
+                [status]="productForm.controls.code.touched? (productForm.controls.code.errors ?'danger' : 'basic') : 'basic' "
+                name="code" formControlName="code">
+            </div>
+          </div>
+
+
+
+
+          <div class="form-group row">
+
+            <label for="description" class="label col-sm-1  col-form-label">Descrição: </label>
+
+            <div class="col-sm-10">
+
+              <input id="description" type="text" nbInput fullWidth placeholder="Descrição" name="description"
+                formControlName="description"
+                [status]="productForm.controls.description.touched? (productForm.controls.description.errors ?'danger' : 'basic') : 'basic' ">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="category" class="label col-sm-1  col-form-label">Categoria: </label>
+
+            <div class="col-sm-2">
+
+              <nb-select placeholder="Categoria" fullWidth name="category" formControlName="category" id="category"
+                [status]="productForm.controls.category.touched? (productForm.controls.category.errors ?'danger' : 'basic') : 'basic' ">
+                <nb-option *ngFor="let category of categories" [value]="category"> {{ category.name }}</nb-option>
+              </nb-select>
+
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="brand" class="label col-sm-1  col-form-label">Marca: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Marca" name="brand" formControlName="brand" id="brand"
+                [status]="productForm.controls.brand.touched? (productForm.controls.brand.errors ?'danger' : 'basic') : 'basic' ">
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+
+            <label for="observation" class="label col-sm-1 col-form-label">Observações: </label>
+
+            <div class="col-sm-10">
+
+              <textarea rows="5" nbInput fullWidth placeholder="Observações" name="observation" id="observation"
+                formControlName="observation"></textarea>
+            </div>
+          </div>
+
+
+
+
+        </nb-tab>
+
+
+      </nb-tabset>
+    </form>
+    <button nbButton status="success" [disabled]="!productForm.valid" (click)="insert()"> Adicionar</button>
+  </nb-card-body>
+</nb-card>

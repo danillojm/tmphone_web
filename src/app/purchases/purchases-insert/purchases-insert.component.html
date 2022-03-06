@@ -1,0 +1,162 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+
+    <form [formGroup]="purchasesForm">
+
+
+      <nb-tabset>
+        <nb-tab tabTitle="Adicionar Compra">
+
+          <div>
+            <div class="form-group">
+              <label for="purchaseDate" class="label">Data da compra*</label>
+              <div>
+                <input nbInput id="purchaseDate" placeholder="Data da compra" [nbDatepicker]="dateTimePicker"
+                  format="MM\dd\yyyy" name="purchaseDate" formControlName="purchaseDate"
+                  [status]="purchasesForm.controls.purchaseDate.touched? (purchasesForm.controls.purchaseDate.errors ?'danger' : 'basic') : 'basic' ">
+                <nb-datepicker #dateTimePicker></nb-datepicker>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-2">
+
+              <div class="form-group">
+                <label for="platform" class="label">Plataforma*</label>
+                <div>
+                  <nb-select placeholder="Plataforma" id="platform" name="platform" formControlName="platform"
+                    [status]="purchasesForm.controls.platform.touched? (purchasesForm.controls.platform.errors ?'danger' : 'basic') : 'basic' ">
+                    <nb-option *ngFor="let platform of platforms" [value]="platform"> {{ platform.name }}
+                    </nb-option>
+                  </nb-select>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="storeName" class="label">Nome da Loja*</label>
+                <div>
+                  <input type="text" id="storeName" name="storeName" formControlName="storeName" nbInput
+                    placeholder="Nome da Loja"
+                    [status]="purchasesForm.controls.storeName.touched? (purchasesForm.controls.storeName.errors ?'danger' : 'basic') : 'basic' ">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="orderId" class="label">ID do Pedido</label>
+                <div>
+                  <input type="text" id="orderId" name="orderId" formControlName="orderId" nbInput
+                    placeholder="ID do Pedido"
+                    [status]="purchasesForm.controls.orderId.touched? (purchasesForm.controls.orderId.errors ?'danger' : 'basic') : 'basic' ">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="product" class="label">Produto*</label>
+                <div>
+                  <nb-select placeholder="Product" id="product" name="product" formControlName="product"
+                    [status]="purchasesForm.controls.product.touched? (purchasesForm.controls.product.errors ?'danger' : 'basic') : 'basic' ">
+                    <nb-option *ngFor="let product of products" [value]="product"> {{ product.description }}
+                    </nb-option>
+                  </nb-select>
+
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="quantity" class="label">Quantidade*</label>
+                <div>
+                  <input type="text" id="quantity" name="quantity" formControlName="quantity" nbInput
+                    (keyup)="calculateTotalValue()" placeholder="Quantidade"
+                    [status]="purchasesForm.controls.quantity.touched? (purchasesForm.controls.quantity.errors ?'danger' : 'basic') : 'basic' ">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="unitPrice" class="label">Preço Unitario*</label>
+                <div>
+                  <input type="text" id="unitPrice" name="unitPrice" formControlName="unitPrice" nbInput
+                    placeholder="Preço Unitario"
+                    [status]="purchasesForm.controls.unitPrice.touched? (purchasesForm.controls.unitPrice.errors ?'danger' : 'basic') : 'basic' "
+                    (keyup)="calculateTotalValue()">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="totalPrice" class="label">Preço Total</label>
+                <div>
+                  <input type="text" id="totalPrice" name="totalPrice" formControlName="totalPrice" nbInput disabled
+                    placeholder="Preço Total"
+                    [status]="purchasesForm.controls.totalPrice.touched? (purchasesForm.controls.totalPrice.errors ?'danger' : 'basic') : 'basic' ">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="trackingCode" class="label">Código de Rastreio</label>
+                <div>
+                  <input type="text" id="trackingCode" name="trackingCode" formControlName="trackingCode" nbInput
+                    placeholder="Código de  Rastreio">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="observation" class="label">Observações</label>
+                <div>
+                  <textarea rows="5" id="observation" name="observation" formControlName="observation" nbInput fullWidth
+                    placeholder="Observações"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </nb-tab>
+
+
+      </nb-tabset>
+
+
+
+    </form>
+
+    <div class="buttons-row">
+
+      <button nbButton status="success" [disabled]="!purchasesForm.valid" (click)="insert()"> Salvar</button>
+
+
+    </div>
+  </nb-card-body>
+
+</nb-card>

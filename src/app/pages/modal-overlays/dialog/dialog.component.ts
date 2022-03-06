@@ -1,5 +1,5 @@
 import { Component, TemplateRef } from '@angular/core';
-import { NbDialogService } from '@nebular/theme';
+import { NbDialogRef, NbDialogService } from '@nebular/theme';
 import { ShowcaseDialogComponent } from './showcase-dialog/showcase-dialog.component';
 import { DialogNamePromptComponent } from './dialog-name-prompt/dialog-name-prompt.component';
 

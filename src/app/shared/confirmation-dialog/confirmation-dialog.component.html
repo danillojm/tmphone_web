@@ -1,0 +1,13 @@
+<nb-card>
+  <nb-card-header>{{title}}</nb-card-header>
+  <nb-card-body>
+    {{msg}}
+  </nb-card-body>
+  <nb-card-footer>
+
+    <div  class="buttons-row">
+      <button class="btn"nbButton hero status="success" (click)="onConfirm()">Sim</button>
+      <button class="btn" nbButton hero status="danger" (click)="dismiss()">Não</button>
+    </div>
+  </nb-card-footer>
+</nb-card>

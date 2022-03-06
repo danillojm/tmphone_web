@@ -1,0 +1,380 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "code": "057/44",
+      "category": {
+        "id": 1,
+        "name": "smartWatch",
+        "description": ""
+      },
+      "brand": "Colmi",
+      "costPrice": 80,
+      "salePrice": 150,
+      "currentInventory": 5,
+      "observation": "sdfsfsdfsdfsdf"
+    },
+    {
+      "id": 2,
+      "code": "057/44",
+      "category": {
+        "id": 1,
+        "name": "smartWatch",
+        "description": ""
+      },
+      "brand": "Colmi",
+      "costPrice": 80,
+      "salePrice": 150,
+      "currentInventory": 5,
+      "observation": "sdfsfsdfsdfsdf"
+    },
+    {
+      "code": "32423",
+      "category": {
+        "id": 2,
+        "name": "Fone de ouvido",
+        "observation": ""
+      },
+      "brand": "TESTE",
+      "costPrice": 2,
+      "salePrice": 2,
+      "currentInventory": 233,
+      "observation": "ewrsdf",
+      "description": "asdfsaf",
+      "id": 3
+    },
+    {
+      "code": "sdf",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "efsdef",
+      "costPrice": 43,
+      "salePrice": 43,
+      "currentInventory": 43,
+      "observation": "sdfsd",
+      "description": "43w345",
+      "id": 4
+    },
+    {
+      "code": "5423",
+      "category": {
+        "id": 2,
+        "name": "Fone de ouvido",
+        "observation": ""
+      },
+      "brand": "Xiaomi",
+      "observation": null,
+      "description": "testevvv",
+      "id": 5
+    },
+    {
+      "code": "001",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "Colmi",
+      "observation": "Teste",
+      "description": "Colmi P8 Plus",
+      "id": 6
+    },
+    {
+      "code": "345345",
+      "category": {
+        "id": 2,
+        "name": "Fone de ouvido",
+        "observation": ""
+      },
+      "brand": "dsffss",
+      "observation": "sdfsdfsdfsd",
+      "description": "tredsfdsds",
+      "id": 7
+    },
+    {
+      "code": "333",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "3333",
+      "observation": "3333",
+      "description": "3333",
+      "id": 8
+    },
+    {
+      "code": "werew",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "fds",
+      "observation": "sdfds",
+      "description": "frdsw",
+      "id": 9
+    },
+    {
+      "code": "asdfsf",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "sdfsd",
+      "observation": "fsdf",
+      "description": "dsfsd",
+      "id": 10
+    },
+    {
+      "code": "asfdas",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "fsdfsd",
+      "observation": "sdfsdf",
+      "description": "dsafsd",
+      "id": 11
+    },
+    {
+      "code": "asdas",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "asdasd",
+      "observation": "sadas",
+      "description": "asdas",
+      "id": 12
+    },
+    {
+      "code": "453354",
+      "category": {
+        "id": 1,
+        "name": "SmartWatch",
+        "observation": ""
+      },
+      "brand": "sfsdf",
+      "observation": "dsfsd",
+      "description": "ewrfwedf",
+      "id": 13
+    },
+    {
+      "code": "54242",
+      "category": {
+        "id": 3,
+        "name": "SmartPhone",
+        "observation": ""
+      },
+      "brand": "APPLE",
+      "observation": "Bateria 88%\nN° do Modelo MQ9F2LL/A\nNúmero de Série ED3W1CYJCM1\nIMEI 35 301209 114962 3\nMEID 35301209114962",
+      "description": "Iphone 11 dourado",
+      "id": 14
+    }
+  ],
+  "purchases": [
+    {
+      "id": 1,
+      "purchaseDate": "01/02/2021",
+      "platform": {
+        "id": 1,
+        "name": "Aliexpress"
+      },
+      "storeName": "Fantacy",
+      "orderId": "01547855",
+      "product": "Fone qcy",
+      "quantity": 2,
+      "unitPrice": 80,
+      "totalPrice": 120,
+      "trackingCode": "",
+      "observation": "",
+      "status": "Em trânsito para Unidade de Tratamento - JABOATAO DOS GUARARAPES/PE",
+      "productArrived": false
+    },
+    {
+      "purchaseDate": "2021-07-06T03:00:00.000Z",
+      "platform": {
+        "id": 1,
+        "name": "Aliexpress"
+      },
+      "storeName": "fantacye tec",
+      "orderId": "32445543",
+      "product": "Xiaomi Mi note 10",
+      "quantity": "1",
+      "unitPrice": "900",
+      "totalPrice": "900",
+      "trackingCode": "LB34354SE",
+      "observation": "Teste",
+      "status": "Em trânsito para Unidade de Tratamento - JABOATAO DOS GUARARAPES/PE",
+      "id": 2,
+      "productArrived": false
+    },
+    {
+      "purchaseDate": "2021-07-19T03:00:00.000Z",
+      "platform": {
+        "id": 1,
+        "name": "Aliexpress",
+        "url": "http://www.aliexpress.com",
+        "logoImg": "/assets/images/icon-aliexpress.png",
+        "totalValue": 0
+      },
+      "storeName": "TESTE",
+      "orderId": "22423",
+      "product": "TESTE02",
+      "quantity": "5",
+      "unitPrice": "55",
+      "totalPrice": "200",
+      "trackingCode": null,
+      "observation": null,
+      "id": 3,
+      "productArrived": false
+    },
+    {
+      "purchaseDate": "2021-07-19T03:00:00.000Z",
+      "platform": {
+        "id": 1,
+        "name": "Aliexpress",
+        "url": "http://www.aliexpress.com",
+        "logoImg": "/assets/images/icon-aliexpress.png",
+        "totalValue": 0
+      },
+      "storeName": "tesdte",
+      "orderId": "323432",
+      "product": "TESTE",
+      "quantity": "4",
+      "unitPrice": "454",
+      "totalPrice": "4444",
+      "trackingCode": null,
+      "observation": null,
+      "id": 4,
+      "productArrived": false
+    },
+    {
+      "purchaseDate": "2022-02-02T03:00:00.000Z",
+      "platform": {
+        "id": 1,
+        "name": "Aliexpress",
+        "url": "http://www.aliexpress.com",
+        "logoImg": "/assets/images/icon-aliexpress.png",
+        "totalValue": 0
+      },
+      "storeName": "asd",
+      "orderId": "sad",
+      "product": "wdfsadf",
+      "quantity": "32",
+      "unitPrice": "2",
+      "totalPrice": "2",
+      "trackingCode": "weasdas",
+      "observation": "wadsfsdafsdfsadfafqarew",
+      "id": 5,
+      "productArrived": false
+    },
+    {
+      "purchaseDate": "2022-02-17T03:00:00.000Z",
+      "platform": {
+        "id": 2,
+        "name": "Shopee",
+        "url": "https://shopee.com.br/",
+        "logoImg": "/assets/images/icon-shopee.png",
+        "totalValue": 0
+      },
+      "storeName": "Loja1",
+      "orderId": "15478",
+      "product": "iPhone 12",
+      "quantity": "3",
+      "unitPrice": "30000",
+      "totalPrice": "44555",
+      "trackingCode": "4344e",
+      "observation": "teste",
+      "id": 6,
+      "productArrived": false
+    },
+    {
+      "purchaseDate": "2022-01-27T03:00:00.000Z",
+      "platform": {
+        "id": 1,
+        "name": "Aliexpress",
+        "url": "http://www.aliexpress.com",
+        "logoImg": "/assets/images/icon-aliexpress.png",
+        "totalValue": 0
+      },
+      "storeName": "Xiaomi Mi Store",
+      "orderId": "8145594461781500 ",
+      "product": "Xiaomi redmi note 11",
+      "quantity": "1",
+      "unitPrice": "969,72",
+      "totalPrice": "969,72",
+      "trackingCode": "LE452894438SE",
+      "observation": null,
+      "id": 7,
+      "productArrived": false
+    }
+  ],
+  "platform": [
+    {
+      "id": 1,
+      "name": "Aliexpress",
+      "url": "http://www.aliexpress.com",
+      "logoImg": "/assets/images/icon-aliexpress.png",
+      "totalValue": 0
+    },
+    {
+      "id": 2,
+      "name": "Shopee",
+      "url": "https://shopee.com.br/",
+      "logoImg": "/assets/images/icon-shopee.png",
+      "totalValue": 0
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "sdfs",
+      "phoneNumber": "asdfsd",
+      "email": "sdfsd",
+      "cpf": "sdf",
+      "observation": "dsfsd",
+      "address": {
+        "addressName": "sdf",
+        "zipCode": "sdf",
+        "uf": "sdf",
+        "city": "sdf"
+      }
+    },
+    {
+      "name": "Danillo josé de melo",
+      "phoneNumber": "(81) 9 9720-7112",
+      "email": "danillojm@gmail.com",
+      "cpf": "10371660432",
+      "observation": "Teasfsdgfdsgfd",
+      "address": {
+        "addressName": "rua das mangueiras",
+        "zipCode": "55817090",
+        "uf": "PE",
+        "city": "carpina"
+      },
+      "id": 2
+    },
+    {
+      "name": "sdfsd",
+      "phoneNumber": "sdfsd",
+      "email": "sdf",
+      "cpf": "sdfsd",
+      "observation": "fsd",
+      "address": {
+        "addressName": "sdfsdf",
+        "zipCode": "sdfsd",
+        "uf": "sdfsdf",
+        "city": "sdfsdf"
+      },
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<nb-tabset>
+  <nb-tab tabTitle="Compras">
+    <nb-card>
+      <nb-card-header>
+
+        <img [src]="platform?.logoImg" style="width: 80px ;margin: 5px 5px">
+        <span style="font-size: 40px; margin: 10px 5px 5px">{{platform?.name}}</span>
+      </nb-card-header>
+
+      <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="onUserRowSelect($event)">
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </nb-tab>
+
+</nb-tabset>

@@ -1,0 +1,16 @@
+<nb-tabset>
+  <nb-tab tabTitle="Produtos">
+
+    <nb-card>
+      <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="onUserRowSelect($event)">
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+
+
+  </nb-tab>
+  <nb-tab tabTitle="Transações de estoque">
+
+  </nb-tab>
+</nb-tabset>

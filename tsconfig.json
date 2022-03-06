@@ -8,6 +8,7 @@
     "declaration": false,
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "allowJs": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
@@ -17,7 +18,9 @@
       "dom"
     ],
     "plugins": [
-      { "name": "tslint-language-service"}
+      {
+        "name": "tslint-language-service"
+      }
     ]
   }
 }

@@ -1,0 +1,13 @@
+<nb-tabset>
+  <nb-tab tabTitle="Compras">
+
+    <div class="row">
+      <div class="col-xxxl-3 col-md-6" *ngFor="let value of platforms">
+        <ngx-status-card [title]="value.name" [totalValue]="value.totalValue" [platformId]="value.id">
+          <img class="img-card" [src]="value.logoImg">
+        </ngx-status-card>
+      </div>
+    </div>
+
+  </nb-tab>
+</nb-tabset>
