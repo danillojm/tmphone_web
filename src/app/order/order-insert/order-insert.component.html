@@ -1,0 +1,189 @@
+<form [formGroup]="orderForm">
+  <nb-card>
+    <nb-card-body class="example-items-col">
+
+      <h3 class="text-heading">Adicionar Pedido</h3>
+
+
+
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-body class="example-items-col">
+      <div>
+        <div class="form-group">
+          <label for="orderDate" class="label">Data da compra*</label>
+          <div>
+            <input nbInput id="orderDate" placeholder="Data do pedido" [nbDatepicker]="dateTimePicker" name="orderDate"
+              formControlName="orderDate"
+              [status]="orderForm.controls.orderDate.touched? (orderForm.controls.orderDate.errors ?'danger' : 'basic') : 'basic' ">
+            <nb-datepicker #dateTimePicker></nb-datepicker>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="client" class="label">Cliente*</label>
+            <div>
+              <nb-select fullWidth placeholder="Cliente" id="client" name="client" formControlName="client"
+                [status]="orderForm.controls.client.touched? (orderForm.controls.client.errors ?'danger' : 'basic') : 'basic' ">
+                <nb-option *ngFor="let client of clients" [value]="client"> {{ client.name }}
+                </nb-option>
+              </nb-select>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-body class="example-items-col">
+
+
+      <div class="row">
+
+
+        <div class="col-sm-12">
+          <div class="form-group">
+
+            <div>
+              <h5>Produtos</h5>
+
+            </div>
+            <div>
+
+              <nb-list>
+                <nb-list-item class="item" *ngFor="let product of products">
+                  <div>
+                    <nb-icon icon="inbox-outline" style="margin-right: 50px"></nb-icon>
+                  </div>
+                  <div class="col-sm-6">
+                    <span>{{product.description}}</span>
+                  </div>
+                  <div>
+                    <button nbButton status="primary">
+                      <nb-icon icon="plus-square-outline"></nb-icon>
+                    </button>
+                    <span class="">1</span>
+                    <button nbButton status="primary">
+                      <nb-icon icon="plus-square-outline"></nb-icon>
+                    </button>
+                  </div>
+                </nb-list-item>
+
+              </nb-list>
+
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="row">
+        <button nbButton status="success" (click)="productSearch()">
+          <nb-icon icon="plus-square-outline"></nb-icon>
+          <span class="">Adicionar Produto</span>
+        </button>
+      </div>
+
+    </nb-card-footer>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>
+      <h5>Valor a pagar</h5>
+    </nb-card-header>
+    <nb-card-body class="example-items-col">
+
+      <div class="row">
+
+        <nb-list>
+          <nb-list-item class="item">
+            <label class="label">SubTotal:</label>
+            <span class=""> R$ 0,00</span>
+
+          </nb-list-item>
+          <nb-list-item class="item">
+            <label class="label">Desconto:</label>
+            <span class=""> R$ 0,00</span>
+
+          </nb-list-item>
+          <nb-list-item class="item">
+            <label class="label">Total:</label>
+            <span class=""> R$ 0,00</span>
+
+          </nb-list-item>
+        </nb-list>
+
+      </div>
+
+
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>
+      <h5>Pagamento</h5>
+    </nb-card-header>
+    <nb-card-body class="example-items-col">
+
+
+
+      <div class="row">
+
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="client" class="label">Formas de Pafamento*</label>
+            <div>
+              <nb-select fullWidth placeholder="Forma de Pagamento" id="paymentMethod">
+                <nb-option *ngFor="let value of paymentMethod" [value]="value"> {{ value }}
+                </nb-option>
+              </nb-select>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </nb-card-body>
+  </nb-card>
+
+  <nb-accordion>
+    <nb-accordion-item>
+      <nb-accordion-item-header>
+        Informacões Adicionais
+      </nb-accordion-item-header>
+      <nb-accordion-item-body>
+        <div class="row">
+
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="observation" class="label">Observações</label>
+              <div>
+                <textarea rows="5" id="observation" name="observation" formControlName="observation" nbInput fullWidth
+                  placeholder="Observações"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nb-accordion-item-body>
+    </nb-accordion-item>
+  </nb-accordion>
+
+</form>

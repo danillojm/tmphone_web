@@ -1,0 +1,27 @@
+<nb-card>
+ <nb-card-header>
+  <nb-alert status="primary">Existe Produtos para ser lançado!</nb-alert>
+  <button nbButton status="success">Incluir lançamento</button>
+</nb-card-header>
+  <nb-card-body class="example-items-col">
+    <nb-form-field>
+
+      <nb-icon nbPrefix icon="search-outline" ></nb-icon>
+      <input id="search" name="search" type="text" placeholder="Search..." formControlName="search" nbInput >
+
+  </nb-form-field>
+
+
+  <nb-list>
+    <nb-list-item class="item" *ngFor="let product of products" (click)="click(product)">
+      <div>
+        <nb-icon icon="inbox-outline" style="margin-right: 50px"  ></nb-icon>
+      </div>
+         <span>{{product.description}}</span>
+         <span>{{product.brand}}</span>
+    </nb-list-item>
+
+  </nb-list>
+  </nb-card-body>
+
+</nb-card>

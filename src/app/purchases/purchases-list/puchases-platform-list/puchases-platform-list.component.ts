@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PlatformPurchases } from '../../../model/platform-purchases-model';
-import { Purchases } from '../../../model/purchases-model';
+import { PlatformPurchase } from '../../../model/platform-purchase-model';
+import { Purchase } from '../../../model/purchase-model';
+
 import { PlatformPurchasesService } from '../../purchases-platform.service';
 import { PurchasesService } from '../../purchases.service';
 
@@ -11,9 +12,9 @@ import { PurchasesService } from '../../purchases.service';
 })
 export class PuchasesPlatformListComponent implements OnInit {
 
-  platforms: PlatformPurchases[] = []
+  platforms: PlatformPurchase[] = []
   totalValue: number
-  purchasesForPlataform: Purchases[] = []
+  purchasesForPlataform: Purchase[] = []
   constructor(private purchasesService: PurchasesService, private platformPurchasesService: PlatformPurchasesService) { }
 
   ngOnInit(): void {

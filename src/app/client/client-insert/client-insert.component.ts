@@ -42,7 +42,7 @@ export class ClientInsertComponent implements OnInit {
     this.clientForm = this.formBuilder.group({
       name: [client.name, [Validators.required, FormValidation.isEmpty] ],
       phoneNumber: [client.phoneNumber, [Validators.required, FormValidation.isEmpty] ],
-      email: [client.email],
+      email: [client.email, Validators.email],
       cpf: [client.cpf],
       observation: [client.observation],
       zipCode: [address.zipCode],

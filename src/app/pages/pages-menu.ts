@@ -25,13 +25,43 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   },
   {
-    title: 'Vendas',
-    icon: 'shopping-cart-outline',
-    link: '',
-    home: true,
+    title: 'Pedidos',
+    icon: 'file-add-outline',
+    children: [
+
+      {
+        title: 'Adicionar',
+        link: '/order/insert'
+      },
+      {
+        title: 'Listar',
+        link: '/order/list'
+      }
+    ]
   },
   {
-    title: 'FEATURES',
+    title: 'Estoque',
+    icon: 'cube-outline',
+    children: [
+      {
+        title: 'Controle de Estoque',
+        link: '/stock/insert'
+      },
+      {
+        title: 'Listar',
+        link: '/stock/list'
+      }
+    ]
+  },
+
+  {
+    title: 'Relatórios ',
+    icon: 'file-text-outline',
+
+  },
+
+  {
+    title: 'Cadastros',
     group: true,
   },
 
@@ -41,11 +71,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Adicionar',
-        link: '/product/product-insert'
+        link: '/product/insert'
       },
       {
         title: 'Listar',
-        link: '/product/product-list'
+        link: '/product/list'
       }
     ]
   },
@@ -64,12 +94,19 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   },
   {
-    title: 'Relatórios ',
-    icon: 'file-text-outline',
-
+    title: 'Usuario',
+    icon: 'people-outline',
+    children: [
+      {
+        title: 'Adicionar',
+        link: '/system-user/insert'
+      },
+      {
+        title: 'Listar',
+        link: '/system-user/list'
+      }
+    ]
   }
-
-
   /** {
      title: 'Layout',
      icon: 'layout-outline',

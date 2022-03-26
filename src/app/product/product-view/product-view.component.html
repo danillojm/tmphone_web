@@ -1,0 +1,93 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="large">
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="productForm">
+      <nb-tabset>
+        <nb-tab tabTitle="Adicionar Produto">
+
+
+
+          <div class="form-group row">
+
+            <label for="code" class="label col-sm-1 col-form-label">Código: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Código" id="code" [value]="product?.code" disabled>
+            </div>
+          </div>
+
+
+
+
+          <div class="form-group row">
+
+            <label for="description" class="label col-sm-1  col-form-label">Descrição: </label>
+
+            <div class="col-sm-10">
+
+              <input id="description" type="text" nbInput fullWidth placeholder="Descrição"
+                [value]="product?.description" disabled>
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="category" class="label col-sm-1  col-form-label">Categoria: </label>
+
+            <div class="col-sm-2">
+
+              <input fullWidth type="text" nbInput id="category" [value]="product?.category.name" disabled>
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="brand" class="label col-sm-1  col-form-label">Marca: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Marca" id="brand" [value]="product?.brand" disabled>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+
+            <label for="salePrice" class="label col-sm-1  col-form-label"> Preço venda: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Preço venda" name="salePrice" formControlName="salePrice"
+                id="salePrice">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="observation" class="label col-sm-1 col-form-label">Observações: </label>
+
+            <div class="col-sm-10">
+
+              <textarea rows="5" nbInput fullWidth placeholder="Observações" name="observation" id="observation"
+                formControlName="observation"></textarea>
+            </div>
+          </div>
+
+
+
+        </nb-tab>
+
+
+      </nb-tabset>
+    </form>
+
+  </nb-card-body>
+  <nb-card>
+    <nb-card-body class="example-items-col">
+
+      <button class="btn" nbButton status="warning" (click)="update()"> Alterar</button>
+      <button class="btn" nbButton status="success" [disabled]="!productForm.valid" (click)="save()"> Salvar </button>
+      <button class="btn" nbButton status="danger" (click)="delete()"> Excluir</button>
+
+    </nb-card-body>
+  </nb-card>

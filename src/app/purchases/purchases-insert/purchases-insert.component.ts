@@ -1,12 +1,14 @@
-import { PlatformPurchases } from './../../model/platform-purchases-model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Purchases } from '../../model/purchases-model';
+import { FormValidation } from '../../@core/utils/FormValidation';
+import { PlatformPurchase } from '../../model/platform-purchase-model';
+
+import { Product } from '../../model/product-model';
+import { Purchase } from '../../model/purchase-model';
+
+import { ProductService } from '../../product/product.service';
 import { PlatformPurchasesService } from '../purchases-platform.service';
 import { PurchasesService } from '../purchases.service';
-import { FormValidation } from '../../@core/utils/FormValidation';
-import { ProductService } from '../../product/product.service';
-import { Product } from '../../model/product-model';
 
 @Component({
   selector: 'ngx-purchases-insert',
@@ -19,7 +21,7 @@ export class PurchasesInsertComponent implements OnInit {
   purchasesForm: FormGroup;
 
 
-  platforms: PlatformPurchases[] = []
+  platforms: PlatformPurchase[] = []
   products: Product[] = []
 
   constructor(private formBuilder: FormBuilder, private purchasesService: PurchasesService,
@@ -43,11 +45,11 @@ export class PurchasesInsertComponent implements OnInit {
   createPurchasesForm() {
 
 
-    let purchases = {} as Purchases
+    let purchases = {} as Purchase
 
     this.purchasesForm = this.formBuilder.group({
       purchaseDate: [purchases.purchaseDate, [Validators.required]],
-      platform: [purchases.platformPurchases, Validators.required],
+      platform: [purchases.platformPurchase, Validators.required],
       storeName: [purchases.storeName, [Validators.required, FormValidation.isEmpty]],
       orderId: [purchases.orderId, [Validators.required, FormValidation.isEmpty]],
       product: [purchases.product, [Validators.required]],
@@ -55,6 +57,7 @@ export class PurchasesInsertComponent implements OnInit {
       unitPrice: [purchases.unitPrice, [Validators.required, FormValidation.isEmpty]],
       totalPrice: [0],
       trackingCode: [purchases.trackingCode],
+      color: [purchases.color, [Validators.required]],
       observation: [purchases.observation],
 
     })
@@ -65,7 +68,6 @@ export class PurchasesInsertComponent implements OnInit {
 
     let quantity = this.purchasesForm.get('quantity').value
     let unitPrice = this.purchasesForm.get('unitPrice').value
-
     let totalPrice = (unitPrice * quantity)
 
     this.purchasesForm.get('totalPrice').setValue(totalPrice)
@@ -76,8 +78,8 @@ export class PurchasesInsertComponent implements OnInit {
 
   insert() {
 
-    let puchase = new Purchases();
-    puchase.purchaseDate = this.purchasesForm.get('purchaseDate').value
+    let puchase = new Purchase();
+    puchase.purchaseDate = new Date(this.purchasesForm.get('purchaseDate').value);
     puchase.platformpurchase_id = this.purchasesForm.get('platform').value.id
     puchase.storeName = this.purchasesForm.get('storeName').value
     puchase.orderId = this.purchasesForm.get('orderId').value
@@ -87,8 +89,7 @@ export class PurchasesInsertComponent implements OnInit {
     puchase.totalPrice = this.purchasesForm.get('totalPrice').value
     puchase.trackingCode = this.purchasesForm.get('trackingCode').value
     puchase.observation = this.purchasesForm.get('observation').value
-
-    console.log(puchase)
+    puchase.color = this.purchasesForm.get('color').value
 
     this.purchasesService.insert(puchase).subscribe(() => {
       this.createPurchasesForm();

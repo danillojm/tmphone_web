@@ -11,6 +11,7 @@ export class ConfirmationDialogComponent implements OnInit {
 
   @Input() title: string;
   @Input() msg: string;
+  confirm: boolean = true;
   constructor(protected ref: NbDialogRef<ConfirmationDialogComponent>) { }
 
   ngOnInit(): void {
@@ -18,11 +19,12 @@ export class ConfirmationDialogComponent implements OnInit {
 
 
   dismiss() {
-    this.ref.close();
+    this.ref.close(false);
   }
+
   onConfirm() {
-    console.log("asdas")
-    this.ref.close();
-    this.ref.onBackdropClick
+
+    this.ref.close(confirm);
+
   }
 }

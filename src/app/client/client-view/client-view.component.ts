@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NbDialogService } from '@nebular/theme';
+import { NbComponentStatus, NbDialogService, NbToastrService } from '@nebular/theme';
 import { FormValidation } from '../../@core/utils/FormValidation';
 import { Address } from '../../model/address-model';
 import { Client } from '../../model/client-model';
@@ -14,12 +14,13 @@ import { ClientService } from '../client.service';
   templateUrl: './client-view.component.html',
   styleUrls: ['./client-view.component.scss']
 })
-export class ClientViewComponent implements OnInit, OnChanges {
+export class ClientViewComponent implements OnInit {
 
   client: Client
   clientForm: FormGroup
-
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private clientService: ClientService, private formBuilder: FormBuilder, private dialogService: NbDialogService) { }
+  loading = false;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private clientService: ClientService,
+    private formBuilder: FormBuilder, private dialogService: NbDialogService, private toastrService: NbToastrService) { }
 
   ngOnInit(): void {
 
@@ -35,10 +36,6 @@ export class ClientViewComponent implements OnInit, OnChanges {
     })
 
 
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("asd")
   }
 
   createClientForm() {
@@ -72,16 +69,39 @@ export class ClientViewComponent implements OnInit, OnChanges {
 
   alterClient() {
     this.clientForm.enable()
-    console.log(this.clientForm.status)
   }
 
-  cancel() {
-    this.clientForm.disable()
-    this.router.navigate(['/client/list'])
+  delete() {
+
+    this.dialogService.open(ConfirmationDialogComponent, {
+      context: {
+        title: "Deletar",
+        msg: "Deja deletar esse registro?"
+      }
+    }).onClose.subscribe((clickConfimation) => {
+
+      if (clickConfimation) {
+
+        this.loading = true
+
+        setTimeout(() => {
+
+          this.clientService.delete(this.client.id).subscribe(() => {
+
+            this.clientForm.disable()
+            this.router.navigate(['/client/list'])
+          })
+          this.loading = false
+        }, 1000)
+      }
+
+
+
+    })
+
   }
 
   save() {
-    console.log(this.client)
     let client = {} as Client
 
     client.id = this.client.id
@@ -91,32 +111,45 @@ export class ClientViewComponent implements OnInit, OnChanges {
     client.cpf = this.clientForm.get('cpf').value
     client.observation = this.clientForm.get('observation').value
 
-
-
-
-
     this.dialogService.open(ConfirmationDialogComponent, {
       context: {
         title: 'Comfirmar',
         msg: "Deseja confirmar as alterções?",
-        onConfirm: () => {
-          console.log("sdfds")
+
+      },
+
+    }).onClose.subscribe((clickConfimation) => {
+
+      if (clickConfimation) {
+        this.loading = true
+
+        setTimeout(() => {
           this.clientService.update(client).subscribe(
             result => {
-              console.log(result)
+              this.clientForm.disable()
+              this.router.navigate(['/client/list'])
             },
             error => {
-              console.log(error.status)
+              this.showDangerToast('danger');
             }
           )
-        }
-      },
+          this.loading = false
+        },1000)
+
+      }
 
     });
 
   }
+  showSuccessToast(status: NbComponentStatus) {
 
+    this.toastrService.show(status, "Cliente atualizado com sucesso", { status });
+  }
 
+  showDangerToast(status: NbComponentStatus) {
+
+    this.toastrService.show(status, "Erro ao atualizar", { status });
+  }
 }
 
 

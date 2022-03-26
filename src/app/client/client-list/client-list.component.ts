@@ -57,8 +57,6 @@ export class ClientListComponent implements OnInit {
 
     this.clientService.setClient(client);
     this.router.navigateByUrl('/client/view/'+client.id);
-    // console.log(this.router.navigateByUrl)
-    // console.log(client);
   }
 
 }

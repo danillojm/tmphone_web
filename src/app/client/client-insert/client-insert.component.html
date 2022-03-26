@@ -25,7 +25,8 @@
 
               <input type="text" nbInput fullWidth placeholder="Telefone" id="phoneNumber" name="phoneNumber"
                 formControlName="phoneNumber"
-                [status]="clientForm.controls.phoneNumber.touched? (clientForm.controls.phoneNumber.errors ?'danger' : 'basic') : 'basic' ">
+                [status]="clientForm.controls.phoneNumber.touched? (clientForm.controls.phoneNumber.errors ?'danger' : 'basic') : 'basic' "
+                mask="(00) 0 0000-0000">
             </div>
           </div>
 
@@ -36,7 +37,8 @@
 
             <div class="col-sm-5">
 
-              <input type="text" nbInput fullWidth placeholder="E-mail" id="email" name="email" formControlName="email">
+              <input type="text" nbInput fullWidth placeholder="E-mail" id="email" name="email" formControlName="email"
+                [status]="clientForm.controls.email.touched? (clientForm.controls.email.errors ?'danger' : 'basic') : 'basic' ">
             </div>
           </div>
 
@@ -47,7 +49,7 @@
             <div class="col-sm-2">
 
               <input type="text" nbInput fullWidth placeholder="CEP" id="zipCode" name="zipCode"
-                formControlName="zipCode">
+                formControlName="zipCode" mask="00000-000">
             </div>
 
 
@@ -87,7 +89,8 @@
 
             <div class="col-sm-2">
 
-              <input type="text" nbInput fullWidth placeholder="Nome" id="cpf" name="cpf" formControlName="cpf">
+              <input type="text" nbInput fullWidth placeholder="Nome" id="cpf" name="cpf" formControlName="cpf"
+                mask="000.000.000-00">
             </div>
           </div>
 
@@ -106,6 +109,12 @@
 
       </nb-tabset>
     </form>
-    <button nbButton status="success"  [disabled]="!clientForm.valid" (click)="addClient()"> Adicionar</button>
+
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <button nbButton status="success" [disabled]="!clientForm.valid" (click)="addClient()"> Adicionar</button>
   </nb-card-body>
 </nb-card>

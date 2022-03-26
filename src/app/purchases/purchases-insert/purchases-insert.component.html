@@ -12,7 +12,7 @@
               <label for="purchaseDate" class="label">Data da compra*</label>
               <div>
                 <input nbInput id="purchaseDate" placeholder="Data da compra" [nbDatepicker]="dateTimePicker"
-                  format="MM\dd\yyyy" name="purchaseDate" formControlName="purchaseDate"
+                  name="purchaseDate" formControlName="purchaseDate"
                   [status]="purchasesForm.controls.purchaseDate.touched? (purchasesForm.controls.purchaseDate.errors ?'danger' : 'basic') : 'basic' ">
                 <nb-datepicker #dateTimePicker></nb-datepicker>
               </div>
@@ -26,7 +26,7 @@
               <div class="form-group">
                 <label for="platform" class="label">Plataforma*</label>
                 <div>
-                  <nb-select placeholder="Plataforma" id="platform" name="platform" formControlName="platform"
+                  <nb-select placeholder="Plataforma" id="platform" name="platform" formControlName="platform" fullWidth
                     [status]="purchasesForm.controls.platform.touched? (purchasesForm.controls.platform.errors ?'danger' : 'basic') : 'basic' ">
                     <nb-option *ngFor="let platform of platforms" [value]="platform"> {{ platform.name }}
                     </nb-option>
@@ -35,17 +35,17 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="form-group">
                 <label for="storeName" class="label">Nome da Loja*</label>
                 <div>
-                  <input type="text" id="storeName" name="storeName" formControlName="storeName" nbInput
+                  <input type="text" id="storeName" name="storeName" formControlName="storeName" nbInput fullWidth
                     placeholder="Nome da Loja"
                     [status]="purchasesForm.controls.storeName.touched? (purchasesForm.controls.storeName.errors ?'danger' : 'basic') : 'basic' ">
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="form-group">
                 <label for="orderId" class="label">ID do Pedido</label>
                 <div>
@@ -60,11 +60,11 @@
           <div class="row">
 
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="form-group">
                 <label for="product" class="label">Produto*</label>
                 <div>
-                  <nb-select placeholder="Product" id="product" name="product" formControlName="product"
+                  <nb-select placeholder="Product" id="product" name="product" formControlName="product" fullWidth
                     [status]="purchasesForm.controls.product.touched? (purchasesForm.controls.product.errors ?'danger' : 'basic') : 'basic' ">
                     <nb-option *ngFor="let product of products" [value]="product"> {{ product.description }}
                     </nb-option>
@@ -74,9 +74,18 @@
               </div>
             </div>
 
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="color" class="label">Cor*</label>
+                <div>
+                  <input type="text" id="color" name="color" formControlName="color" nbInput
+                    (keyup)="calculateTotalValue()" placeholder="Cor"
+                    [status]="purchasesForm.controls.color.touched? (purchasesForm.controls.color.errors ?'danger' : 'basic') : 'basic' ">
+                </div>
+              </div>
+            </div>
 
-
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="form-group">
                 <label for="quantity" class="label">Quantidade*</label>
                 <div>
@@ -87,25 +96,26 @@
               </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="form-group">
                 <label for="unitPrice" class="label">Preço Unitario*</label>
                 <div>
                   <input type="text" id="unitPrice" name="unitPrice" formControlName="unitPrice" nbInput
                     placeholder="Preço Unitario"
                     [status]="purchasesForm.controls.unitPrice.touched? (purchasesForm.controls.unitPrice.errors ?'danger' : 'basic') : 'basic' "
-                    (keyup)="calculateTotalValue()">
+                    (keyup)="calculateTotalValue()" prefix="R$" mask="separator.2" thousandSeparator=".">
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="form-group">
                 <label for="totalPrice" class="label">Preço Total</label>
                 <div>
                   <input type="text" id="totalPrice" name="totalPrice" formControlName="totalPrice" nbInput disabled
                     placeholder="Preço Total"
-                    [status]="purchasesForm.controls.totalPrice.touched? (purchasesForm.controls.totalPrice.errors ?'danger' : 'basic') : 'basic' ">
+                    [status]="purchasesForm.controls.totalPrice.touched? (purchasesForm.controls.totalPrice.errors ?'danger' : 'basic') : 'basic' "
+                    prefix="R$" mask="separator.2" thousandSeparator=".">
                 </div>
               </div>
             </div>
@@ -114,7 +124,7 @@
 
           <div class="row">
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="form-group">
                 <label for="trackingCode" class="label">Código de Rastreio</label>
                 <div>
@@ -140,23 +150,21 @@
               </div>
             </div>
           </div>
-
-
         </nb-tab>
-
-
       </nb-tabset>
-
-
-
     </form>
 
+
+  </nb-card-body>
+
+</nb-card>
+
+<nb-card>
+  <nb-card-body class="example-items-col">
     <div class="buttons-row">
 
       <button nbButton status="success" [disabled]="!purchasesForm.valid" (click)="insert()"> Salvar</button>
 
-
     </div>
   </nb-card-body>
-
 </nb-card>

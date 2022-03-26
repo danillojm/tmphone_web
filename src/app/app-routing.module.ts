@@ -15,6 +15,7 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
+
   {
     path: 'auth',
     component: NbAuthComponent,
@@ -45,11 +46,14 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+
+  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
   { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
   { path: 'purchases', loadChildren: () => import('./purchases/purchases.module').then(m => m.PurchasesModule) },
+  { path: 'order', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) },
+  { path: 'stock', loadChildren: () => import('./stock/stock.module').then(m => m.StockModule) },
+  { path: 'system-user', loadChildren: () => import('./system-user/system-user.module').then(m => m.SystemUserModule) },
   { path: '**', redirectTo: 'pages' },
 ];
 

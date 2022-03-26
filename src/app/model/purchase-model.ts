@@ -1,15 +1,15 @@
-import { PlatformPurchases } from "./platform-purchases-model";
+import { PlatformPurchase } from './platform-purchase-model';
 import { Product } from './product-model';
 
 
 
-export class Purchases {
+export class Purchase {
 
 
   id: number;
   purchaseDate: Date;
   platformpurchase_id: number;
-  platformPurchases: PlatformPurchases;
+  platformPurchase: PlatformPurchase;
   storeName: string;
   orderId: string;
   product_id: number;
@@ -21,5 +21,5 @@ export class Purchases {
   observation: string;
   status: string;
   productArrived = false;
-
+  color:string
 }

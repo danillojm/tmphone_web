@@ -23,7 +23,6 @@ export class ProductService {
     this.getProducts().subscribe(products => {
 
       products.forEach(element => {
-        console.log(element)
         let productSource = new ProductSource()
         productSource.id = element.id
         productSource.code = element.code
@@ -31,6 +30,7 @@ export class ProductService {
         productSource.brand = element.brand
         productSource.observation = element.observation
         productSource.description = element.description
+        productSource.salePrice = element.salePrice
         source.push(productSource)
 
       });
@@ -48,6 +48,22 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseUrl);
   }
+
+
+  getById(id: number): Observable<Product> {
+
+    return this.http.get<Product>(this.baseUrl + "/" + id);
+
+  }
+
+  update(client: Product): Observable<Product> {
+    return this.http.put<Product>(this.baseUrl + "/" + client.id, client);
+  }
+  delete(id: number): Observable<Product> {
+
+    return this.http.delete<Product>(this.baseUrl + "/" + id);
+  }
+
 }
 
 class ProductSource {
@@ -58,12 +74,12 @@ class ProductSource {
   }
 
 
-  id: string
+  id: number
   code: string
   category: string
   brand: string
   costPrice: string
-  salePrice: string
+  salePrice: number
   currentInventory: string
   observation: string
   description: string

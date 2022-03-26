@@ -1,7 +1,8 @@
-import { PlatformPurchases } from './../model/platform-purchases-model';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { PlatformPurchase } from "../model/platform-purchase-model";
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,12 @@ export class PlatformPurchasesService {
   }
 
 
-  getPlatforms(): Observable<PlatformPurchases[]> {
-    return this.http.get<PlatformPurchases[]>(this.baseUrl)
+  getPlatforms(): Observable<PlatformPurchase[]> {
+    return this.http.get<PlatformPurchase[]>(this.baseUrl)
   }
 
-  getPlatform(id: any): Observable<PlatformPurchases> {
-    return this.http.get<PlatformPurchases>(this.baseUrl + "/" + id)
+  getPlatform(id: any): Observable<PlatformPurchase> {
+    return this.http.get<PlatformPurchase>(this.baseUrl + "/" + id)
   }
 
 }

@@ -3,8 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToggleModule } from '@nebular/theme';
 import { LocalDataSource } from 'ng2-smart-table';
-import { PlatformPurchases } from '../../model/platform-purchases-model';
-import { Purchases } from '../../model/purchases-model';
+import { PlatformPurchase } from '../../model/platform-purchase-model';
+import { Purchase } from '../../model/purchase-model';
 import { PlatformPurchasesService } from '../purchases-platform.service';
 import { PurchasesService } from '../purchases.service';
 
@@ -15,15 +15,15 @@ import { PurchasesService } from '../purchases.service';
 })
 export class PurchasesListComponent implements OnInit {
 
-  platforms: PlatformPurchases[] = []
+  platforms: PlatformPurchase[] = []
   totalValue: number
-  purchasesForPlataform: Purchases[] = []
+  purchasesForPlataform: Purchase[] = []
   constructor(private router: Router, private activatedRouter: ActivatedRoute, private purchasesService: PurchasesService, private platformPurchasesService: PlatformPurchasesService) { }
 
 
   idPlatform: any;
-  platform: PlatformPurchases;
-  shoppingForPlataform: Purchases[] = []
+  platform: PlatformPurchase;
+  shoppingForPlataform: Purchase[] = []
 
   source = new LocalDataSource()
 
@@ -54,7 +54,7 @@ export class PurchasesListComponent implements OnInit {
 
     columns: {
       orderId: { title: 'ID do Pedido', type: 'string' },
-      purchaseDate: { title: 'Data da compra', type: 'date' },
+      purchaseDate: { title: 'Data da compra', type: 'string' },
       storeName: { title: 'Nome da Loja', type: 'string' },
       product: { title: 'Produto', type: 'string' },
       quantity: { title: 'Quantidade', type: 'number' },
@@ -69,13 +69,11 @@ export class PurchasesListComponent implements OnInit {
   onUserRowSelect(event): void {
 
 
-    let purchase = {} as Purchases
+    let purchase = {} as Purchase
     purchase = event.data
 
-    console.log(purchase);
     this.router.navigateByUrl('/purchases/details/' + purchase.id);
-    // console.log(this.router.navigateByUrl)
-    // console.log(client);
+     ;
   }
 
 }

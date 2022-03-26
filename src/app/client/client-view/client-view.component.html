@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card [nbSpinner]="loading" nbSpinnerSize="giant" nbSpinnerStatus="primary">
   <nb-card-body class="example-items-col">
     <form [formGroup]="clientForm">
       <nb-tabset>
@@ -98,7 +98,7 @@
             <div class="col-sm-10">
 
               <textarea rows="5" nbInput fullWidth placeholder="Observações" name="observation" id="observation"
-                formControlName="observation" ></textarea>
+                formControlName="observation"></textarea>
             </div>
           </div>
 
@@ -106,9 +106,17 @@
 
       </nb-tabset>
     </form>
+
+
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-body class="example-items-col">
+
     <button class="btn" nbButton status="warning" (click)="alterClient()"> Alterar</button>
     <button class="btn" nbButton status="success" [disabled]="!clientForm.valid" (click)="save()"> Salvar </button>
-    <button class="btn" nbButton status="danger" (click)="cancel()"> Cancelar</button>
+    <button class="btn" nbButton status="danger" (click)="delete()"> Excluir</button>
 
   </nb-card-body>
 </nb-card>

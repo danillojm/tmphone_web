@@ -48,7 +48,6 @@ export class ClientService {
       source.load(clientSourceData)
     })
 
-    console.log(source)
     return source;
   }
 
@@ -67,9 +66,11 @@ export class ClientService {
   }
 
   update(client: Client): Observable<Client> {
-    console.log(client)
-    console.log(this.baseUrl + "/" + client.id, client)
     return this.http.put<Client>(this.baseUrl + "/" + client.id, client);
+  }
+  delete(id: number): Observable<Client> {
+
+    return this.http.delete<Client>(this.baseUrl + "/" + id);
   }
 }
 class clientSource {

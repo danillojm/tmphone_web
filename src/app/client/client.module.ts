@@ -1,3 +1,4 @@
+import { NgxMaskModule } from 'ngx-mask';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,7 +7,7 @@ import { ClientComponent } from './client.component';
 import { ClientInsertComponent } from './client-insert/client-insert.component';
 import { ClientListComponent } from './client-list/client-list.component';
 import { ThemeModule } from '../@theme/theme.module';
-import { NbButtonModule, NbCardModule, NbDialogModule, NbDialogService, NbInputModule, NbMenuModule, NbSelectModule, NbTabsetModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbDialogModule, NbDialogService, NbInputModule, NbMenuModule, NbSelectModule, NbSpinnerModule, NbTabsetModule } from '@nebular/theme';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsRoutingModule } from '../pages/forms/forms-routing.module';
 import { TablesRoutingModule } from '../pages/tables/tables-routing.module';
@@ -39,7 +40,9 @@ import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confi
     FormsRoutingModule,
     TablesRoutingModule,
     Ng2SmartTableModule,
-    NbDialogModule.forRoot()
+    NbDialogModule.forRoot(),
+    NgxMaskModule.forChild(),
+    NbSpinnerModule
 
   ]
 })

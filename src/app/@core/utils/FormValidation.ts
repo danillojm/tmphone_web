@@ -73,7 +73,7 @@ export class FormValidation {
   static isEmpty(controle: AbstractControl) {
 
     let value = controle.value
-    if (value === null || !controle.value.trim()) {
+    if (value === null || !controle?.value.trim()) {
       return { isEmpty: true };
     }
     return null

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalDataSource } from 'ng2-smart-table';
+import { Product } from '../../model/product-model';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -23,21 +25,27 @@ export class ProductListComponent implements OnInit {
       description: { title: 'Descrição', type: 'string' },
       category: { title: 'Categoria', type: 'string' },
       brand: { title: 'Marca', type: 'string' },
+      salePrice: { title: 'Preço venda', type: 'string' },
       observation: { title: 'Observação', type: 'string' },
 
     },
   };
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.source = this.productService.getSource();
   }
 
 
+
   onUserRowSelect(event): void {
 
-    console.log(event.dados)
-  }
 
+    let product = {} as Product
+    product = event.data
+
+
+    this.router.navigateByUrl('/product/view/' + product.id);
+  }
 }

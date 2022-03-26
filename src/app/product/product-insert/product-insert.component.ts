@@ -40,8 +40,9 @@ export class ProductInsertComponent implements OnInit {
     this.productForm = this.formBuilder.group({
       code: [product.code, [Validators.required, FormValidation.isEmpty]],
       description: [product.description, [Validators.required, FormValidation.isEmpty]],
-      category: [product.category, [Validators.required, FormValidation.isEmpty]],
+      category: [product.category, [Validators.required]],
       brand: [product.brand, [Validators.required, FormValidation.isEmpty]],
+      salePrice: [product.salePrice],
       observation: [product.observation]
     })
   }
@@ -56,9 +57,7 @@ export class ProductInsertComponent implements OnInit {
     product.brand = this.productForm.get('brand').value
     product.observation = this.productForm.get('observation').value
     product.description = this.productForm.get('description').value
-
-    console.log(product)
-
+    product.salePrice = this.productForm.get('salePrice').value
 
     this.productService.insert(product).subscribe(() => {
 

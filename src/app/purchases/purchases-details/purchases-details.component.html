@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="large">
   <nb-card-body class="example-items-col">
 
     <form [formGroup]="purchasesForm">
@@ -9,46 +9,38 @@
 
           <div>
             <div class="form-group">
-              <label for="purchaseDate" class="label">Data da compra*</label>
+              <label for="purchaseDate" class="label">Data da compra</label>
               <div>
-                <input nbInput id="purchaseDate" placeholder="Data da compra" [nbDatepicker]="dateTimePicker"
-                  format="MM.yyyy" name="purchaseDate" formControlName="purchaseDate"
-                  [status]="purchasesForm.controls.purchaseDate.touched? (purchasesForm.controls.purchaseDate.errors ?'danger' : 'basic') : 'basic' ">
-                <nb-datepicker #dateTimePicker></nb-datepicker>
+                <input nbInput id="purchaseDate" placeholder="Data da compra" name="purchaseDate"
+                  [value]="dateFormatLocale(purchase?.purchaseDate)" disabled>
+
               </div>
             </div>
           </div>
 
           <div class="row">
-
-            <div class="form-group">
-              <label for="platform" class="label">Plataforma*</label>
-              <div>
-                <nb-select placeholder="Plataforma" id="platform" name="platform" formControlName="platform"
-                  [status]="purchasesForm.controls.platform.touched? (purchasesForm.controls.platform.errors ?'danger' : 'basic') : 'basic' ">
-                  <nb-option *ngFor="let platform of platforms" [value]="platform"> {{ platform.name }}
-                  </nb-option>
-                </nb-select>
-
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="platform" class="label">Plataforma</label>
+                <div>
+                  <input type="text" id="platform" name="platform" [value]="platform?.name" nbInput disabled>
+                </div>
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="storeName" class="label">Nome da Loja*</label>
+                <label for="storeName" class="label">Nome da Loja</label>
                 <div>
-                  <input type="text" id="storeName" name="storeName" formControlName="storeName" nbInput
-                    placeholder="Nome da Loja"
-                    [status]="purchasesForm.controls.storeName.touched? (purchasesForm.controls.storeName.errors ?'danger' : 'basic') : 'basic' ">
+                  <input type="text" id="storeName" name="storeName" nbInput [value]="purchase?.storeName" disabled>
                 </div>
               </div>
             </div>
+
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="orderId" class="label">ID do Pedido</label>
                 <div>
-                  <input type="text" id="orderId" name="orderId" formControlName="orderId" nbInput
-                    placeholder="ID do Pedido"
-                    [status]="purchasesForm.controls.orderId.touched? (purchasesForm.controls.orderId.errors ?'danger' : 'basic') : 'basic' ">
+                  <input type="text" id="orderId" name="orderId" nbInput [value]="purchase?.orderId" disabled>
                 </div>
               </div>
             </div>
@@ -58,33 +50,28 @@
 
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="product" class="label">Produto*</label>
+                <label for="product" class="label">Produto</label>
                 <div>
-                  <input type="text" id="product" name="product" formControlName="product" nbInput placeholder="Produto"
-                    [status]="purchasesForm.controls.product.touched? (purchasesForm.controls.product.errors ?'danger' : 'basic') : 'basic' ">
+                  <input type="text" id="product" name="product" nbInput [value]="purchase?.product.description"
+                    disabled>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="quantity" class="label">Quantidade*</label>
+                <label for="quantity" class="label">Quantidade</label>
                 <div>
-                  <input type="text" id="quantity" name="quantity" formControlName="quantity" nbInput
-                    (keyup)="calculateTotalValue()" placeholder="Quantidade"
-                    [status]="purchasesForm.controls.quantity.touched? (purchasesForm.controls.quantity.errors ?'danger' : 'basic') : 'basic' ">
+                  <input type="text" id="quantity" name="quantity" nbInput [value]="purchase?.quantity" disabled>
                 </div>
               </div>
             </div>
 
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="unitPrice" class="label">Preço Unitario*</label>
+                <label for="unitPrice" class="label">Preço Unitario</label>
                 <div>
-                  <input type="text" id="unitPrice" name="unitPrice" formControlName="unitPrice" nbInput
-                    placeholder="Preço Unitario"
-                    [status]="purchasesForm.controls.unitPrice.touched? (purchasesForm.controls.unitPrice.errors ?'danger' : 'basic') : 'basic' "
-                    (keyup)="calculateTotalValue()">
+                  <input type="text" id="unitPrice" name="unitPrice" nbInput [value]="purchase?.unitPrice" disabled>
                 </div>
               </div>
             </div>
@@ -93,9 +80,8 @@
               <div class="form-group">
                 <label for="totalPrice" class="label">Preço Total</label>
                 <div>
-                  <input type="text" id="totalPrice" name="totalPrice" formControlName="totalPrice" nbInput disabled
-                    placeholder="Preço Total"
-                    [status]="purchasesForm.controls.totalPrice.touched? (purchasesForm.controls.totalPrice.errors ?'danger' : 'basic') : 'basic' ">
+                  <input type="text" id="totalPrice" name="totalPrice" nbInput [value]="purchase?.totalPrice"
+                    prefix="R$" mask="separator.2" thousandSeparator="." disabled>
                 </div>
               </div>
             </div>
@@ -114,11 +100,19 @@
               </div>
             </div>
 
+            <div class="col-sm-12">
+              <div class="form-group">
+                <div>
+                  <nb-toggle [(checked)]="productArrived" status="success" id="productArrived" name="productArrived"
+                    formControlName="productArrived">Chegou?</nb-toggle>
+                </div>
+              </div>
+            </div>
+
+
           </div>
 
-
           <div class="row">
-
 
             <div class="col-sm-12">
               <div class="form-group">
@@ -131,21 +125,15 @@
             </div>
           </div>
 
-
         </nb-tab>
-
-
       </nb-tabset>
-
-
-
     </form>
 
     <div class="buttons-row">
 
-      <button class="btn" nbButton status="warning" (click)="alter()"> Alterar</button>
-      <button class="btn" nbButton status="success" (click)="save()"> Salvar </button>
-      <button class="btn" nbButton status="danger" (click)="cancel()"> Cancelar</button>
+      <button class="btn" nbButton status="warning" (click)="alter()" [disabled]="!activateButton()"> Alterar</button>
+      <button class="btn" nbButton status="success" [disabled]="!purchasesForm.valid" (click)="save()"> Salvar </button>
+      <button class="btn" nbButton status="danger" (click)="delete()" [disabled]="!activateButton()"> Excluir</button>
 
 
     </div>

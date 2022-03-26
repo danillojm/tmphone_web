@@ -1,0 +1,93 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="large">
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="systemUserForm">
+      <nb-tabset>
+        <nb-tab tabTitle="Adicionar Usuario">
+
+
+
+          <div class="form-group row">
+
+            <label for="name" class="label col-sm-1 col-form-label">Nome: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Nome" id="name"
+                [status]="systemUserForm.controls.name.touched? (systemUserForm.controls.name.errors ?'danger' : 'basic') : 'basic' "
+                name="name" formControlName="name">
+            </div>
+          </div>
+          <div class="form-group row">
+
+            <label for="login" class="label col-sm-1 col-form-label">Login: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Login" id="login"
+                [status]="systemUserForm.controls.login.touched? (systemUserForm.controls.login.errors ?'danger' : 'basic') : 'basic' "
+                name="login" formControlName="login">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="email" class="label col-sm-1 col-form-label">Email: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Email" id="email"
+                [status]="systemUserForm.controls.email.touched? (systemUserForm.controls.email.errors ?'danger' : 'basic') : 'basic' "
+                name="email" formControlName="email">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="password" class="label col-sm-1 col-form-label">Senha: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Senha" id="password"
+                [status]="systemUserForm.controls.password.touched? (systemUserForm.controls.password.errors ?'danger' : 'basic') : 'basic' "
+                name="password" formControlName="password">
+            </div>
+          </div>
+          <div class="form-group row">
+
+            <label for="phoneNumber" class="label col-sm-1 col-form-label">Fone: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Fone" id="phoneNumber"
+                [status]="systemUserForm.controls.phoneNumber.touched? (systemUserForm.controls.phoneNumber.errors ?'danger' : 'basic') : 'basic' "
+                name="phoneNumber" formControlName="phoneNumber">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="accessProfile" class="label col-sm-1 col-form-label">Perfil De acesso: </label>
+
+            <div class="col-sm-10">
+
+
+              <nb-select placeholder="Categoria" name="accessProfile" formControlName="accessProfile" id="accessProfile"
+                [status]="systemUserForm.controls.accessProfile.touched? (systemUserForm.controls.accessProfile.errors ?'danger' : 'basic') : 'basic' ">
+                <nb-option *ngFor="let accessProfile of accessProfiles" [value]="accessProfile"> {{ accessProfile }}
+                </nb-option>
+              </nb-select>
+
+
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </form>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <button nbButton status="success" [disabled]="!systemUserForm.valid" (click)="insert()"> Adicionar</button>
+  </nb-card-body>
+</nb-card>
