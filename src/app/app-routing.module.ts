@@ -10,11 +10,6 @@ import {
 } from '@nebular/auth';
 
 export const routes: Routes = [
-  {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module')
-      .then(m => m.PagesModule),
-  },
 
   {
     path: 'auth',
@@ -54,6 +49,7 @@ export const routes: Routes = [
   { path: 'order', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) },
   { path: 'stock', loadChildren: () => import('./stock/stock.module').then(m => m.StockModule) },
   { path: 'system-user', loadChildren: () => import('./system-user/system-user.module').then(m => m.SystemUserModule) },
+  { path: 'report', loadChildren: () => import('./report/report.module').then(m => m.ReportModule) },
   { path: '**', redirectTo: 'pages' },
 ];
 

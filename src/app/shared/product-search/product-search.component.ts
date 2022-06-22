@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NbDialogRef } from '@nebular/theme';
-import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Utils } from '../../common/infra/utils';
 import { Product } from '../../model/product-model';
 import { ProductService } from '../../product/product.service';

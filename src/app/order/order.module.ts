@@ -5,9 +5,6 @@ import { NbAccordionModule, NbButtonModule, NbCardModule, NbDatepickerModule, Nb
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgxMaskModule } from 'ngx-mask';
 import { ThemeModule } from '../@theme/theme.module';
-import { FormsRoutingModule } from '../pages/forms/forms-routing.module';
-import { TablesRoutingModule } from '../pages/tables/tables-routing.module';
-import { ProductRoutingModule } from '../product/product-routing.module';
 import { OrderInsertComponent } from './order-insert/order-insert.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderRoutingModule } from './order-routing.module';
@@ -34,8 +31,6 @@ import { OrderComponent } from './order.component';
     ReactiveFormsModule,
     NbInputModule,
     NbButtonModule,
-    FormsRoutingModule,
-    TablesRoutingModule,
     Ng2SmartTableModule,
     NbDatepickerModule,
     NgxMaskModule.forChild(),

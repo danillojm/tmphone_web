@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MENU_ITEMS } from '../pages-menu';
 
-
 @Component({
-  selector: 'ngx-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: 'ngx-report',
+  templateUrl: './report.component.html',
+  styleUrls: ['./report.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ReportComponent implements OnInit {
+
   menu = MENU_ITEMS
   constructor() { }
 

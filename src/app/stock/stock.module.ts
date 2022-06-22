@@ -5,8 +5,6 @@ import { NbAccordionModule, NbAlertModule, NbButtonModule, NbCardModule, NbDatep
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgxMaskModule } from 'ngx-mask';
 import { ThemeModule } from '../@theme/theme.module';
-import { FormsRoutingModule } from '../pages/forms/forms-routing.module';
-import { TablesRoutingModule } from '../pages/tables/tables-routing.module';
 import { StockInsertComponent } from './stock-insert/stock-insert.component';
 import { StockListComponent } from './stock-list/stock-list.component';
 import { StockRoutingModule } from './stock-routing.module';
@@ -32,8 +30,6 @@ import { StockComponent } from './stock.component';
     ReactiveFormsModule,
     NbInputModule,
     NbButtonModule,
-    FormsRoutingModule,
-    TablesRoutingModule,
     Ng2SmartTableModule,
     NbDatepickerModule,
     NgxMaskModule.forChild(),

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
-import { ShowcaseDialogComponent } from '../../pages/modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 
 @Component({
   selector: 'ngx-confirmation-dialog',

@@ -5,8 +5,6 @@ import { NbAccordionModule, NbAlertModule, NbButtonModule, NbCardModule, NbDatep
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgxMaskModule } from 'ngx-mask';
 import { ThemeModule } from '../@theme/theme.module';
-import { FormsRoutingModule } from '../pages/forms/forms-routing.module';
-import { TablesRoutingModule } from '../pages/tables/tables-routing.module';
 import { SystemUserInsertComponent } from './system-user-insert/system-user-insert.component';
 import { SystemUserListComponent } from './system-user-list/system-user-list.component';
 import { SystemUserRoutingModule } from './system-user-routing.module';
@@ -31,8 +29,6 @@ import { SystemUserComponent } from './system-user.component';
     ReactiveFormsModule,
     NbInputModule,
     NbButtonModule,
-    FormsRoutingModule,
-    TablesRoutingModule,
     Ng2SmartTableModule,
     NbDatepickerModule,
     NgxMaskModule.forChild(),

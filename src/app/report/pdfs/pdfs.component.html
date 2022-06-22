@@ -1,0 +1,94 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+<div>
+    <form [formGroup]="receiptForm">
+      <nb-tabset>
+
+        <nb-tab tabTitle="Gerar Recibo">
+
+          <div class="form-group row">
+
+            <label for="clientName" class="label col-sm-1  col-form-label">Nome do cliente: </label>
+
+            <div class="col-sm-10">
+
+              <input id="clientName" type="text" nbInput fullWidth placeholder="Nome do cliente" name="clientName"
+              formControlName="clientName">
+            </div>
+          </div>
+          <div class="form-group row">
+
+            <label for="cpf" class="label col-sm-1  col-form-label">CPF: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="CPF" name="cpf" id="cpf" formControlName="cpf">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="brandName" class="label col-sm-1  col-form-label">Marca: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Marca" name="brandName" id="brandName"
+                formControlName="brandName">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="description" class="label col-sm-1  col-form-label">Descrição: </label>
+
+            <div class="col-sm-10">
+
+              <input id="description" type="text" nbInput fullWidth placeholder="Descrição" name="description"
+                formControlName="description">
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+
+            <label for="imei" class="label col-sm-1  col-form-label">IMEI: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="imei" name="imei" id="imei" formControlName="imei">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="salePrice" class="label col-sm-1  col-form-label"> Preço venda: </label>
+
+            <div class="col-sm-10">
+
+              <input type="text" nbInput placeholder="Preço venda" name="salePrice" id="salePrice"
+                formControlName="salePrice">
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+            <label for="observation" class="label col-sm-1 col-form-label">Observações: </label>
+
+            <div class="col-sm-10">
+
+              <textarea rows="5" nbInput fullWidth placeholder="Observações" name="observation" id="observation"
+                formControlName="observation"></textarea>
+            </div>
+          </div>
+        </nb-tab>
+
+
+      </nb-tabset>
+
+    </form>
+  </div>
+    <button nbButton status="success" (click)="generateReceipt()"> Gerar recibo</button>
+
+  </nb-card-body>
+
+</nb-card>

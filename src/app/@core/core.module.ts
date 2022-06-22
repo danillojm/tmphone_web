@@ -105,15 +105,6 @@ export const NB_CORE_PROVIDERS = [
   ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
 
-    strategies: [
-      NbDummyAuthStrategy.setup({
-        name: 'email',
-        delay: 3000,
-      }),
-      NbPasswordAuthStrategy.setup({
-        baseEndpoint:''
-      })
-    ],
     forms: {
       login: {
         socialLinks: socialLinks,

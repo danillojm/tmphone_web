@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbButtonModule,
   NbCardModule,
@@ -22,9 +21,7 @@ import {
   NbInputModule,
   NbListModule,
   NbMenuModule,
-  NbSidebarModule, NbSpinnerModule,
-  NbTableModule,
-  NbTabsetModule,
+  NbSidebarModule, NbSpinnerModule, NbTabsetModule,
   NbToastrModule,
   NbWindowModule
 } from '@nebular/theme';
@@ -34,6 +31,7 @@ import { ThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductSearchComponent } from './shared/product-search/product-search.component';
+
 
 
 @NgModule({

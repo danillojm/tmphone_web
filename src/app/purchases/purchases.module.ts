@@ -5,8 +5,6 @@ import { NbButtonModule, NbCardModule, NbDatepickerModule, NbInputModule, NbMenu
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NgxMaskModule } from 'ngx-mask';
 import { ThemeModule } from '../@theme/theme.module';
-import { FormsRoutingModule } from '../pages/forms/forms-routing.module';
-import { TablesRoutingModule } from '../pages/tables/tables-routing.module';
 import { PurchasesDetailsComponent } from './purchases-details/purchases-details.component';
 import { PurchasesInsertComponent } from './purchases-insert/purchases-insert.component';
 import { PuchasesPlatformListComponent } from './purchases-list/puchases-platform-list/puchases-platform-list.component';
@@ -38,8 +36,6 @@ import { PurchasesComponent } from './purchases.component';
     ReactiveFormsModule,
     NbInputModule,
     NbButtonModule,
-    FormsRoutingModule,
-    TablesRoutingModule,
     Ng2SmartTableModule,
     NbDatepickerModule,
     NgxMaskModule.forChild(),
